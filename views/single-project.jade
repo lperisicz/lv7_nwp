@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    form(action='/projects' method='post')
+        if isLeader
+            p Ime:
+                input(type='text', name='name' value=project.name)
+            p Opis:
+                input(type='text', name='description' value=project.description)
+            p Cijena:
+                input(type='number', name='price' value=project.price)
+            p Pocetak:
+                input(type='date', name='start' value=project.start)
+            p Kraj:
+                input(type='date', name='end' value=project.end)
+        p Napravljeno:
+            p
+            textarea(name='workdone')= project.workdone
+            input(type='hidden' name='id' value=project.id)
+        p
+            input(type='submit' name='submit' value='Posalji')
+
+    if project.leader
+        section
+            h2 Voditelj
+            p= project.leader.name
+
+    if project.participants
+        section
+            h2 Clanovi
+            each participant in project.participants
+                li=participant.name

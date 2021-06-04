@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav
+      a(href='/') Pocetna
+      a(href='/projects/create') Kreiraj projekt
+      a(href='/projects?leader=true&archive=false') Popis (voditelj)
+      a(href='/projects?leader=false&archive=false') Popis (clan)
+      a(href='/projects?leader=true&archive=true') Arhiva (voditelj)
+      a(href='/projects?leader=false&archive=true') Arhiva (clan)
+    block content

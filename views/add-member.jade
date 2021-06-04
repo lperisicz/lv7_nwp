@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    form(action='/projects/add-member' method='post')
+        select(name='member' multiple=true)
+            each user in users
+                option(value=user.id)= user.name
+        input(type='hidden' name='id' value=project.id)
+        input(type='submit' value='Dodaj')
